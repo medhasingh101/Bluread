@@ -1,0 +1,342 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   SafeView — On-page overlay styles
+   Palette: #81A6C6  #AACDDC  #D2C4B4  #F3E3D0
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Blurred content wrapper ─────────────────────────────────────────────── */
+
+.tg-blurred {
+  filter: blur(10px);
+  user-select: none;
+  cursor: pointer;
+  transition: filter .35s ease;
+  position: relative;
+}
+
+.tg-unblurring {
+  transition: filter .35s ease !important;
+  filter: blur(0) !important;
+}
+
+.tg-blurred:hover {
+  filter: blur(7px);
+}
+
+/* ─── Warning label ───────────────────────────────────────────────────────── */
+
+.tg-label {
+  all: initial;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 2147483646;
+  background: linear-gradient(135deg, rgba(129,166,198,.85), rgba(170,205,220,.85));
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 8px 14px;
+  margin: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: 0 4px 20px rgba(129,166,198,.35);
+  cursor: pointer;
+  white-space: normal;
+  pointer-events: auto;
+}
+
+.tg-label:hover {
+  background: linear-gradient(135deg, rgba(129,166,198,.95), rgba(170,205,220,.95));
+  box-shadow: 0 6px 28px rgba(129,166,198,.45);
+}
+
+.tg-label__icon {
+  font-style: normal;
+  font-size: 14px;
+}
+
+.tg-label__category {
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: 11px;
+}
+
+.tg-label__hint {
+  font-weight: 400;
+  opacity: .8;
+  overflow-wrap: anywhere;
+}
+
+.tg-label__reason {
+  display: block;
+  font-size: 11px;
+  opacity: .9;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.tg-label__badge {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-right: 2px;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.35);
+}
+
+/* ─── Modal overlay ───────────────────────────────────────────────────────── */
+
+.tg-modal {
+  all: initial;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  animation: tg-fade-in .18s ease;
+}
+
+.tg-modal__card {
+  all: initial;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: linear-gradient(135deg, rgba(129,166,198,.92), rgba(170,205,220,.88));
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 20px;
+  padding: 28px 32px;
+  max-width: 440px;
+  width: calc(100% - 48px);
+  box-shadow: 0 24px 64px rgba(0,0,0,.3);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #fff;
+  animation: tg-slide-up .22s ease;
+}
+
+.tg-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tg-modal__title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  color: #fff;
+}
+
+.tg-modal__close {
+  all: initial;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  color: rgba(255,255,255,.6);
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background .15s, color .15s;
+}
+.tg-modal__close:hover {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+}
+
+.tg-modal__body {
+  font-size: 14px;
+  color: #F3E3D0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.tg-modal__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+/* Reveal button */
+.tg-btn-reveal {
+  all: initial;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.3);
+  color: #fff;
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(12px);
+  transition: background .15s;
+  white-space: nowrap;
+}
+.tg-btn-reveal:hover { background: rgba(255,255,255,.22); }
+
+/* Summary button */
+.tg-btn-summary {
+  all: initial;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  color: #fff;
+  background: linear-gradient(135deg, #81A6C6, #AACDDC);
+  box-shadow: 0 2px 12px rgba(129,166,198,.4);
+  transition: box-shadow .15s, transform .1s;
+  white-space: nowrap;
+}
+.tg-btn-summary:hover {
+  box-shadow: 0 4px 20px rgba(129,166,198,.55);
+  transform: translateY(-1px);
+}
+
+/* ─── Detected-words row ──────────────────────────────────────────────────── */
+
+.tg-modal__detected {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,.65);
+  margin-top: -6px;
+  margin-bottom: 2px;
+}
+
+.tg-token {
+  display: inline-block;
+  font-family: "SF Mono", "Fira Code", "Courier New", monospace;
+  font-size: 11px;
+  background: rgba(255,255,255,.15);
+  color: #F3E3D0;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 6px;
+  padding: 2px 6px;
+  white-space: nowrap;
+}
+
+/* ─── Why blurred (reasons) ────────────────────────────────────────────────── */
+
+.tg-reasons-box {
+  all: initial;
+  display: block;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-left: 4px solid #6366f1;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #F3E3D0;
+  margin-top: 12px;
+}
+
+.tg-reasons-box__label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #6366f1;
+  margin-bottom: 6px;
+}
+
+.tg-reasons-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.tg-reasons-list li {
+  margin-bottom: 4px;
+}
+
+.tg-reasons-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ─── AI summary box ──────────────────────────────────────────────────────── */
+
+.tg-summary-box {
+  all: initial;
+  display: block;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  border-left: 4px solid #AACDDC;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #F3E3D0;
+  margin-top: 4px;
+}
+
+.tg-summary-box--loading {
+  color: rgba(255,255,255,.5);
+  font-style: italic;
+}
+
+.tg-summary-box__label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #AACDDC;
+  margin-bottom: 8px;
+}
+
+/* ─── Animations ──────────────────────────────────────────────────────────── */
+
+@keyframes tg-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes tg-slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Video / image overlay (Instagram Reels, X videos) ────────────────────── */
+
+.tg-video-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.tg-blur-wrap {
+  display: block;
+  margin: 0 0 8px 0;
+}
+
+.tg-video-blurred {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.tg-video-wrapper .tg-label--video {
+  pointer-events: auto;
+}

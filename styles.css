@@ -1,0 +1,285 @@
+﻿body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f6f7f9;
+  color: #1f2937;
+}
+
+.popup {
+  width: 320px;
+  padding: 14px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.subtitle {
+  margin: 4px 0 10px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.metric-card {
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.metric-card.toxic {
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+.metric-card.doom {
+  border-color: #fde68a;
+  background: #fffbeb;
+}
+
+.metric-card.health {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+}
+
+.metric-card.meter {
+  border-color: #d1d5db;
+  background: #ffffff;
+}
+
+.metric-card.summary-card {
+  border-color: #c7d2fe;
+  background: #eef2ff;
+}
+
+.metric-card.control-card {
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pref-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.pref-row select {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 12px;
+  padding: 4px 6px;
+  background: #ffffff;
+  color: #111827;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #1f2937;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #d1d5db;
+  transition: 0.2s;
+  border-radius: 999px;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  top: 3px;
+  background-color: #ffffff;
+  transition: 0.2s;
+  border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+  background-color: #22c55e;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.metric-label {
+  margin: 0;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.metric-value {
+  margin: 4px 0 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.health-bar {
+  margin-top: 8px;
+  height: 8px;
+  width: 100%;
+  background: #dbeafe;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.health-fill {
+  height: 100%;
+  width: 0;
+  background: #22c55e;
+  transition: width 220ms ease;
+}
+
+.updated-at {
+  margin: 4px 2px 0;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+.emotion-gauge {
+  position: relative;
+  width: 210px;
+  height: 110px;
+  margin: 8px auto 0;
+  overflow: hidden;
+}
+
+.gauge-arc {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 180deg,
+    #22c55e 0deg,
+    #22c55e 45deg,
+    #facc15 90deg,
+    #fb923c 135deg,
+    #ef4444 180deg
+  );
+}
+
+.gauge-arc::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  width: 182px;
+  height: 182px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.gauge-needle-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 0;
+  height: 86px;
+  transform: translateX(-50%) rotate(-90deg);
+  transform-origin: bottom center;
+  transition: transform 280ms ease;
+}
+
+.gauge-needle {
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 4px;
+  height: 80px;
+  border-radius: 999px;
+  background: #111827;
+}
+
+.gauge-center-dot {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border-radius: 50%;
+  background: #111827;
+}
+
+.gauge-zones {
+  margin-top: 2px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  font-size: 10px;
+  color: #6b7280;
+  text-align: center;
+}
+
+.gauge-state {
+  margin: 6px 0 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.summary-topic {
+  margin: 4px 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #312e81;
+}
+
+.summary-text {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #1f2937;
+}
+
+.key-terms {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.term-chip {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #e0e7ff;
+  color: #3730a3;
+}

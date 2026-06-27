@@ -1,0 +1,4 @@
+config.js
+twelvelabs-server/.env
+twelvelabs-server/node_modules/
+twelvelabs-server/package-lock.json

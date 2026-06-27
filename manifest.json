@@ -1,0 +1,29 @@
+﻿{
+  "manifest_version": 3,
+  "name": "MV3 Starter Extension",
+  "version": "1.0.0",
+  "description": "A starter Chrome extension using Manifest V3.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js",
+        "commentScanner.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

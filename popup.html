@@ -1,0 +1,111 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feed Health Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="popup dashboard">
+    <h1>Feed Health Dashboard</h1>
+    <p class="subtitle" id="todayLabel">Today</p>
+
+    <section class="metric-card control-card">
+      <div class="toggle-row">
+        <p class="metric-label">Protection</p>
+        <label class="switch" aria-label="Toggle protection">
+          <input id="protectionToggle" type="checkbox" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <p class="summary-text" id="protectionStateText">Protection is ON</p>
+    </section>
+
+    <section class="metric-card control-card">
+      <p class="metric-label">Sentiment preferences</p>
+      <div class="pref-row">
+        <label class="summary-text" for="sentimentMode">Analysis mode</label>
+        <select id="sentimentMode">
+          <option value="balanced">Balanced</option>
+          <option value="strict">Strict</option>
+          <option value="lenient">Lenient</option>
+        </select>
+      </div>
+      <label class="check-row">
+        <input id="blurNegativeToggle" type="checkbox" checked />
+        <span>Blur negative content</span>
+      </label>
+      <label class="check-row">
+        <input id="blurPositiveToggle" type="checkbox" />
+        <span>Blur positive content</span>
+      </label>
+    </section>
+
+    <section class="metric-card toxic">
+      <p class="metric-label">Toxic posts detected</p>
+      <p class="metric-value" id="toxicPostsValue">0</p>
+    </section>
+
+    <section class="metric-card doom">
+      <p class="metric-label">Time spent doomscrolling</p>
+      <p class="metric-value" id="doomscrollTimeValue">0m 0s</p>
+    </section>
+
+    <section class="metric-card health">
+      <p class="metric-label">Daily feed health score</p>
+      <p class="metric-value" id="feedHealthValue">100</p>
+      <div class="health-bar">
+        <div class="health-fill" id="feedHealthFill" style="width: 100%"></div>
+      </div>
+    </section>
+
+    <section class="metric-card meter">
+      <p class="metric-label">Emotional meter</p>
+      <div class="emotion-gauge" aria-label="Emotional meter gauge">
+        <div class="gauge-arc"></div>
+        <div class="gauge-needle-wrap" id="emotionNeedleWrap">
+          <div class="gauge-needle"></div>
+        </div>
+        <div class="gauge-center-dot"></div>
+      </div>
+      <div class="gauge-zones">
+        <span>Calm</span>
+        <span>Neutral</span>
+        <span>Toxic</span>
+        <span>High Stress</span>
+      </div>
+      <p class="gauge-state" id="emotionState">Calm</p>
+    </section>
+
+    <section class="metric-card summary-card">
+      <p class="metric-label">Page summary</p>
+      <p class="summary-topic" id="summaryTopic">Topic: N/A</p>
+      <p class="summary-text" id="summaryText">No summary available yet.</p>
+      <div class="key-terms" id="keyTerms"></div>
+    </section>
+
+    <section class="metric-card summary-card">
+      <p class="metric-label">Page health score</p>
+      <p class="metric-value" id="pageHealthScoreValue">100</p>
+      <div class="health-bar">
+        <div class="health-fill" id="pageHealthFill" style="width: 100%"></div>
+      </div>
+    </section>
+
+    <section class="metric-card summary-card">
+      <p class="metric-label">Toxic words detected</p>
+      <p class="summary-text" id="toxicWordCountText">0 words detected</p>
+      <div class="key-terms" id="toxicWordsList"></div>
+    </section>
+
+    <section class="metric-card summary-card">
+      <p class="metric-label">Sentiment breakdown</p>
+      <p class="summary-text" id="sentimentBreakdownText">Positive 0% • Neutral 100% • Negative 0%</p>
+    </section>
+
+    <p class="updated-at" id="updatedAt">No data yet</p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
