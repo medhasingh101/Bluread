@@ -1,4 +1,5 @@
-# Bluread - Kassiyet Adilbay, Medha Singh, Inayat Kang, Angela Shen
+# Bluread 
+## Kassiyet Adilbay, Medha Singh, Inayat Kang, Angela Shen
 
 A Chrome Extension (Manifest V3) that detects and blurs potentially triggering content on any webpage, with an AI-powered summary option.
 
